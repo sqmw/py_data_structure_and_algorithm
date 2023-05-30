@@ -5,7 +5,7 @@
 from typing import Union
 
 from lib.stack import Stack
-from lib.cal_uitl import cal_by_char_num2
+from lib.util.cal_uitl import cal_by_char_num2
 
 operator_chars = ('+', '-', '*', '/')
 
