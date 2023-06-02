@@ -4,8 +4,8 @@
 """
 from typing import Union
 
-from lib.stack import Stack
-from lib.util.cal_uitl import cal_by_char_num2
+from src.stack import Stack
+from src.util.cal_uitl import cal_by_char_num2
 
 operator_chars = ('+', '-', '*', '/')
 
