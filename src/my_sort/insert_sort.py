@@ -2,11 +2,13 @@
 import random
 
 """插入排序就是每次取出一个插入到有序的序列中"""
-"""第一次实现的插入排序是先找到位置，在进行插入后面进行了修改，在查找位置的时候就进行修改"""
+"""第一次实现的插入排序是先找到位置，再进行插入后面进行了修改，这里运用了查找的知识"""
+"""第二次在查找位置的时候就进行修改，这里没有体现查找的思想"""
+"""第三次通过二分查找找到位置，再进行插入，这个算是第一个算法的提高"""
 """都是升序排序"""
 
 
-def insert_sort(arr):
+def insert_sort2(arr):
     length = len(arr)
     # 依次取出 [1, n)
     for index_after in range(1, length):
@@ -27,6 +29,6 @@ def insert_sort(arr):
 
 
 if __name__ == "__main__":
-    a = [random.randint(1, 100000) for x in range(1, 10000)]
-    insert_sort(a)
+    a = [random.randint(0, 10000000) for x in range(1, 1000000)]
+    insert_sort2(a)
     print(a)
