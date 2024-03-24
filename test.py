@@ -1,19 +1,18 @@
-class MyIterable:
-    def __init__(self, data):
-        self.data = data
-        self.index = 0
+import speech_recognition as sr
 
-    def __iter__(self):
-        return self
+# 创建一个Recognizer对象
+r = sr.Recognizer()
 
-    def __next__(self):
-        if self.index >= len(self.data):
-            raise StopIteration
-        value = self.data[self.index]
-        self.index += 1
-        return value
+# 使用麦克风录音
+with sr.Microphone() as source:
+    print("请说话：")
+    audio = r.listen(source)
 
-
-my_list = MyIterable([1, 2, 3, 4, 5])
-for item in my_list:
-    print(item)
+# 将语音转换为文本
+try:
+    text = r.recognize_google(audio, language='zh-CN')
+    print("你说的是：" + text)
+except sr.UnknownValueError:
+    print("无法识别你的语音")
+except sr.RequestError as e:
+    print("无法连接到Google API，错误原因：" + str(e))
